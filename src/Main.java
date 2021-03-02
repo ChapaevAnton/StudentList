@@ -35,7 +35,7 @@ public class Main {
                     System.out.println(commandError);
                 }
             } catch (ArrayIndexOutOfBoundsException err) {
-                System.err.println("Ошибка. Неверный формат комманды...\n" +
+                System.err.println("Error. Invalid command format...\n" +
                         "For command help, use the command: help");
 
             } catch (StudentException err) {

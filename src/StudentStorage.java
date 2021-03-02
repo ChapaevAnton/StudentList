@@ -13,7 +13,7 @@ public class StudentStorage {
             String name = components[0] + " " + components[1];
             storage.put(name, new Student(name, components[3], components[2]));
         } catch (ArrayIndexOutOfBoundsException err) {
-            throw new StudentException("Ошибка. Неверный формат комманды...\n" +
+            throw new StudentException("Error. Invalid command format...\n" +
                     "For command help, use the command: help");
         }
     }
@@ -21,15 +21,15 @@ public class StudentStorage {
     public void listStudent() throws StudentException {
         if (storage.size() != 0) storage.values().forEach(System.out::println);
         else
-            throw new StudentException("Список пуст...");
+            throw new StudentException("The list is empty...");
     }
 
     public void removeStudent(String name) throws StudentException {
         Student student = storage.get(name);
 
-        if (storage.size() == 0) throw new StudentException("Список пуст...");
+        if (storage.size() == 0) throw new StudentException("The list is empty...");
         else if (student != null) storage.remove(name);
-        else throw new StudentException("Ошибка. Студента: " + name + ". Нет в списке...");
+        else throw new StudentException("Error. Student: " + name + ". Not on the list...");
 
     }
 
@@ -37,9 +37,9 @@ public class StudentStorage {
 
         Student student = storage.get(name);
 
-        if (storage.size() == 0) throw new StudentException("Список пуст...");
+        if (storage.size() == 0) throw new StudentException("The list is empty...");
         else if (student != null) return student;
-        else throw new StudentException("Ошибка. Студента: " + name + ". Нет в списке...");
+        else throw new StudentException("Error. Student: " + name + ". Not on the list...");
     }
 
     public int getCount() {
